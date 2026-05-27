@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Meeraa ❤️</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at center, #2c1a3a 0%, #0f081d 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 40px 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Romantic soft bokeh circles in background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 74, 90, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.2) 0%, transparent 45%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255,255,255,0.2);
+            max-width: 420px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ff758f;
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+            text-shadow: 0 0 15px rgba(255, 117, 143, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .front-page-msg {
+            color: #e2e8f0;
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .romantic-btn {
+            background: linear-gradient(45deg, #ff4a5a, #ff758f);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 74, 90, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .romantic-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(255, 74, 90, 0.6), 0 0 15px rgba(255, 117, 143, 0.4);
+        }
+
+        .romantic-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Hidden Surprise Content */
+        #hidden-section {
+            display: none;
+            margin-top: 35px;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .image-frame {
+            position: relative;
+            padding: 8px;
+            background: linear-gradient(45deg, #ffd700, #ff758f, #8a2be2);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+
+        .couple-img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .secret-msg {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #fff;
+            font-size: 1.3rem;
+            line-height: 1.5;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2), 0 2px 4px rgba(0,0,0,0.5);
+            margin-top: 15px;
+        }
+
+        /* --- BUTTERFLY & SHIMMER ANIMATION EFFECT --- */
+        .butterfly {
+            position: fixed;
+            width: 25px;
+            height: 25px;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0;
+            animation: fly 6s linear forwards, shimmer 1.5s ease-in-out infinite alternate;
+        }
+
+        /* The shifting sparkle color overlay for wings */
+        .butterfly::before, .butterfly::after {
+            content: '🦋';
+            position: absolute;
+            font-size: 25px;
+            text-shadow: 0 0 8px rgba(173, 216, 230, 0.8), 0 0 15px rgba(238, 130, 238, 0.6);
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: scale(0.8) rotateY(0deg);
+                filter: brightness(1) drop-shadow(0 0 2px rgba(255,255,255,0.5));
+            }
+            100% {
+                transform: scale(1.1) rotateY(70deg);
+                filter: brightness(1.6) drop-shadow(0 0 10px rgba(135, 206, 250, 0.9));
+            }
+        }
+
+        @keyframes fly {
+            0% {
+                opacity: 0;
+                transform: translate(0, 0) rotate(0deg);
+            }
+            10% {
+                opacity: 0.9;
+            }
+            90% {
+                opacity: 0.9;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--x), var(--y)) rotate(var(--r));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Front Page Message -->
+        <h1>My Meeraa</h1>
+        <p class="front-page-msg">Every moment with feels like wow Meeraa. The thought of your smile is the light in my day. I miss you more than words can say. ❤️</p>
+        
+        <button class="romantic-btn" onclick="revealSurprise()">Tap for a magical surprise, my Meeraa. ✨</button>
+
+        <!-- Hidden Section -->
+        <div id="hidden-section">
+            <div class="image-frame">
+                <img class="couple-img" src="https://lh3.googleusercontent.com/d/1ui-5p_9Cy8v32krxVgyZAFruX37vxImf" alt="Us">
+            </div>
+            <p class="secret-msg">Thank you so much Meeraa.Idk oru maari paitiyam aagithen .hahaha.You look to Gorgeous my princess.Be Happy always.Meeraa meant to be happy and keep a smile always.I miss you abit more today Meeraa.Seekirama engithe odi vaa Meeraa. See you soon! 😘</p>
+        </div>
+    </div>
+
+    <script>
+        function revealSurprise() {
+            var surpriseDiv = document.getElementById("hidden-section");
+            
+            // Show the hidden content cleanly
+            surpriseDiv.style.display = "block";
+            
+            setTimeout(function() {
+                surpriseDiv.style.opacity = "1";
+                surpriseDiv.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+
+            // Trigger the butterfly storm!
+            createButterflies();
+        }
+
+        function createButterflies() {
+            // Generates 35 magical shimmering butterflies spreading outwards
+            const totalButterflies = 35; 
+            
+            for (let i = 0; i < totalButterflies; i++) {
+                const butterfly = document.createElement('div');
+                butterfly.className = 'butterfly';
+                
+                // Spawn position (around the button area)
+                butterfly.style.left = (window.innerWidth / 2 - 20) + (Math.random() * 80 - 40) + 'px';
+                butterfly.style.top = (window.innerHeight / 2) + (Math.random() * 60 - 30) + 'px';
+                
+                // Random destination paths across the screen dimensions
+                const travelX = (Math.random() * window.innerWidth * 1.5) - (window.innerWidth * 0.75);
+                const travelY = -(Math.random() * window.innerHeight * 0.9) - 100; // Fly upwards orientation
+                const randomRotate = (Math.random() * 360) + 'deg';
+                
+                // Pass travel variables safely directly into the CSS layout engine
+                butterfly.style.setProperty('--x', `${travelX}px`);
+                butterfly.style.setProperty('--y', `${travelY}px`);
+                butterfly.style.setProperty('--r', randomRotate);
+                
+                // Slight offset delays so they don't pop up all at once
+                butterfly.style.animationDelay = (Math.random() * 0.6) + 's';
+                
+                document.body.appendChild(butterfly);
+                
+                // Clean up elements out of memory after flight finishes
+                setTimeout(() => {
+                    butterfly.remove();
+                }, 6500);
+            }
+        }
+    </script>
+
+</body>
+</html>
